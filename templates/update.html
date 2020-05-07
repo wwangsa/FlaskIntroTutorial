@@ -8,8 +8,9 @@
 <div class = "content">
     <h1>Update Tasks</h1>
     
+    <!--send the form content to update routing in app.py and passing the task id-->
     <form action ="/update/{{task.id}}" method ="POST">
-        <!--Showing task content value by default-->
+        <!--Showing task content value with will be updated using jinja2-->
         <input type = "text" name ="txtcontent" id = "content" value = "{{task.content}}">
         <input type = "submit" value = "Update">
     </form>

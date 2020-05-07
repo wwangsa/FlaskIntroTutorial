@@ -5,6 +5,8 @@ from datetime import datetime
 """ 
     freecodeCamp Learn flask for Python tutorial
     https://www.youtube.com/watch?v=Z1RJmh_OqeA
+    using jinja2 syntax to pass parameter from python to html
+    data is stored in sqlite
 """
 
 app = Flask(__name__)
@@ -19,9 +21,17 @@ class Todo(db.Model):
     content = db.Column(db.String(200), nullable = False)
     completed= db.Column(db.Integer, default = 0)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
-
+    #return element when creating the element
     def __repr__(self):
         return '<Task %r>' % self.id
+'''
+    After defining the model, need to go to terminal to create the db.
+    python3 shell
+    >>> from app import db
+    >>> db.create_all()
+    >>> exit()
+'''
+
 
 #rendering HTML template
 @app.route('/', methods =['POST','GET'])
